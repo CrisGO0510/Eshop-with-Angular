@@ -1,0 +1,17 @@
+<div class="container">
+    <mat-toolbar color="primary" class="navbar">
+        <button mat-raised-button color="accent" [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Opción 1</button>
+            <button mat-menu-item>Opción 2</button>
+        </mat-menu>
+        <a href="#" mat-mini-fab>
+            <mat-icon>people</mat-icon>
+        </a>
+        <a href="#" mat-fab>
+            <mat-icon>shopping_cart</mat-icon>
+        </a>
+    </mat-toolbar>
+</div>
