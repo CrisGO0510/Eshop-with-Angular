@@ -11,7 +11,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CarritoComponent } from './components/carrito/carrito.component'
 import { InicioComponent } from './components/inicio/inicio.component';
-import { LoginRegisterComponent } from './components/login-register/login-register.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
     FooterComponent,
     CarritoComponent,
     InicioComponent,
-    LoginRegisterComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,19 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Se agregaron estilos globales */
 
 .container{
     height: 100%;
-    background-color: aqua;
+    background-color: red;
 }
 
 main {
     display: grid;
     background-color: antiquewhite;
     min-height: 100vh;
+    min-width: 100vw;
     grid-template-rows: auto 1fr auto;
-    gap: 75px;
 }
