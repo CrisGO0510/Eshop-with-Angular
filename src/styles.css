@@ -5,6 +5,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Se agregaron estilos globales */
 
+.container{
+    height: 100%;
+    background-color: aqua;
+}
+
 main {
     display: grid;
     background-color: antiquewhite;
