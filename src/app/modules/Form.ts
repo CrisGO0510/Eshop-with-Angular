@@ -3,7 +3,8 @@ export interface Register {
     Password: string;
     Phone: string;
     Email: string;
-    Adress: string;
+    Address: string;
+    root?: Boolean;
 }
 
 export interface Login {

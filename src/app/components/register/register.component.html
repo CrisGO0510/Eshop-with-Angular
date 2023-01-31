@@ -7,19 +7,19 @@
     <div class="form">
       <mat-form-field appearance="fill">
         <mat-label>Ingrese su usuario</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]='user.Username'>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Ingrese su dirección</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]='user.Address'>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Ingrese su telefono</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]='user.Phone'>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Ingrese su correo</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]='user.Email'>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Ingrese su contraseña</mat-label>
@@ -27,9 +27,10 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label> Repita su contraseña</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]='user.Password'>
       </mat-form-field>
     </div>
-    <a href="#">¿Tienes cuenta? <br> Inicia sesión aquí</a>
+    <button mat-flat-button color="primary" (click)="saveForm()" >Enviar</button>  
+    <a href="/login">¿Tienes cuenta? <br> Inicia sesión aquí</a>
   </div>
 </div>

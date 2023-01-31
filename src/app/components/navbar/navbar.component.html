@@ -1,15 +1,15 @@
 <div>
     <mat-toolbar color="primary" class="navbar">
-        <a href="/hola" mat-mini-fab color="accent"><mat-icon>home</mat-icon></a>
+        <a routerLink="/" mat-mini-fab color="accent"><mat-icon>home</mat-icon></a>
         <span class="example-spacer"></span>
         <button mat-mini-fab color="accent" class="example-icon" [matMenuTriggerFor]="menu">
             <mat-icon>people</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item>Opción 1</button>
-            <button mat-menu-item>Opción 2</button>
+            <button mat-menu-item routerLink="/login">Iniciar sesión</button>
+            <button mat-menu-item routerLink="/register">Registrarse</button>
         </mat-menu>
-        <a href="#" mat-mini-fab class="example-icon">
+        <a routerLink="/shoppingcart" mat-mini-fab class="example-icon">
             <mat-icon>shopping_cart</mat-icon>
         </a>
     </mat-toolbar>

@@ -10,7 +10,7 @@ export class SingUpService {
 
   // Variable que contendrá la dirección de la api
 
-  API_URI = ""
+  API_URI = "http://10.253.6.15:3900/"
 
   // Generamos una variable llamada 'http' con el clase de 'httpClient' para poder usar sus metodos
   constructor(private http: HttpClient) { }
