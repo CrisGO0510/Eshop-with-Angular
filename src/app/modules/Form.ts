@@ -1,13 +1,13 @@
 export interface Register {
-    Username: string;
-    Password: string;
-    Phone: string;
-    Email: string;
-    Address: string;
+    username: string;
+    password: string;
+    phone: string;
+    email: string;
+    address: string;
     root?: Boolean;
 }
 
 export interface Login {
-    user: string;
+    username: string;
     password: string;
 }

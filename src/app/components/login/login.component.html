@@ -2,17 +2,18 @@
 <!-- Agregar la verificación, ayuda en: https://material.angular.io/components/form-field/overview -->
 
 <div class="container">
-    <div class="login">
-      <h1>Iniciar sesion</h1>
-        <mat-form-field appearance="fill">
-            <mat-label>Ingrese su correo</mat-label>
-            <input matInput>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Ingrese su contraseña</mat-label>
-            <input matInput>
-          </mat-form-field>
-          <a href="#">¿Olvidaste tu contraseña?</a>
-          <a routerLink="/register">Crear Cuenta</a>
-    </div>
+  <div class="login">
+    <h1>Iniciar sesion</h1>
+    <mat-form-field appearance="fill">
+      <mat-label>Ingrese su correo</mat-label>
+      <input matInput [(ngModel)]='user.username'>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Ingrese su contraseña</mat-label>
+      <input matInput [(ngModel)]='user.password'>
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="saveForm()">Enviar</button>
+    <a href="#">¿Olvidaste tu contraseña?</a>
+    <a routerLink="/register">Crear Cuenta</a>
+  </div>
 </div>

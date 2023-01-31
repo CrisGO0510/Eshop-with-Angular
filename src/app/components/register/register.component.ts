@@ -13,11 +13,11 @@ export class RegisterComponent implements OnInit{
 
   // Instanciamos el objeto que le mandaremos a la api
   user : Register = {
-    Username: '',
-    Password: '',
-    Phone: '',
-    Email: '',
-    Address: '',
+    username: '',
+    password: '',
+    phone: '',
+    email: '',
+    address: '',
     root: false,
 }
   
@@ -44,8 +44,6 @@ export class RegisterComponent implements OnInit{
       error: (e) => console.log(e),
       complete: () => console.log('complete')
     })
-  
-    console.log(this.user);
 
   }
 }

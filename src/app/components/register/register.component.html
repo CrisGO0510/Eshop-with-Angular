@@ -7,19 +7,19 @@
     <div class="form">
       <mat-form-field appearance="fill">
         <mat-label>Ingrese su usuario</mat-label>
-        <input matInput [(ngModel)]='user.Username'>
+        <input matInput [(ngModel)]='user.username'>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Ingrese su dirección</mat-label>
-        <input matInput [(ngModel)]='user.Address'>
+        <input matInput [(ngModel)]='user.address'>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Ingrese su telefono</mat-label>
-        <input matInput [(ngModel)]='user.Phone'>
+        <input matInput [(ngModel)]='user.phone'>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Ingrese su correo</mat-label>
-        <input matInput [(ngModel)]='user.Email'>
+        <input matInput [(ngModel)]='user.email'>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Ingrese su contraseña</mat-label>
@@ -27,10 +27,10 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label> Repita su contraseña</mat-label>
-        <input matInput [(ngModel)]='user.Password'>
+        <input matInput [(ngModel)]='user.password'>
       </mat-form-field>
     </div>
-    <button mat-flat-button color="primary" (click)="saveForm()" >Enviar</button>  
+    <button mat-flat-button color="primary" (click)="saveForm()" >Enviar</button>
     <a href="/login">¿Tienes cuenta? <br> Inicia sesión aquí</a>
   </div>
 </div>
