@@ -17,8 +17,8 @@ export class RegisterComponent implements OnInit{
     password: '',
     phone: '',
     email: '',
-    address: '',
     root: false,
+    address: '',
 }
   
   // Inyectamos el servicio 'SingUpService' para acceder a sus metodos
