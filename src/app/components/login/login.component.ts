@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup , FormBuilder, FormControl, Validator} from '@angular/forms';
 import { Login } from 'src/app/modules/Form';
 import { SingUpService } from 'src/app/services/sing-up.service';
 
@@ -8,6 +9,13 @@ import { SingUpService } from 'src/app/services/sing-up.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  /* --------------------------------------- VALIDACIONES --------------------------------------- */
+
+  form: FormGroup | undefined;
+
+  /* ------------------------------------FIN DE LAS VALIDACIONES -------------------------------- */
+
 
   // Instanciamos el objeto que le pediremos a la api
   user: Login = {
