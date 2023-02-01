@@ -2,7 +2,8 @@
 
 // Modulo configurar el inyector y copilador, además de trasmitir las importaciones
 import { NgModule } from '@angular/core';
-// Exporta la infraestructura requerida para todas las aplicaciones de Angular. Incluido por defecto en todas las aplicaciones Angular creadas con el newcomando CLI.
+// Exporta la infraestructura requerida para todas las aplicaciones de Angular. Incluido por defecto 
+// en todas las aplicaciones Angular creadas con el newcomando CLI.
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Modulo para configurar las rutas de la aplicación web

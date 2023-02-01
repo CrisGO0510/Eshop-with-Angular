@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validator, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs';
-import { Login } from '../../modules/Form';
 import { SingUpService } from 'src/app/services/sing-up.service';
 
 @Component({
@@ -22,8 +21,8 @@ export class LoginComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.maxLength(255), Validators.minLength(4)]],
-      password: ['', [Validators.required, Validators.maxLength(255), Validators.minLength(4)]]
+      username: ['', [Validators.required, Validators.maxLength(32), Validators.minLength(4), Validators.pattern(/^[a-zA-Z0-9 ]+$/)]],
+      password: ['', [Validators.required, Validators.maxLength(255), Validators.minLength(4), Validators.pattern(/^[a-zA-Z0-9 ]+$/)]]
     })
 
     // Este observable me imprimirá en la consola los cambios hechos por el usuario
@@ -47,14 +46,22 @@ export class LoginComponent implements OnInit {
    }
 
 
+
+
+   get usernameControl(): FormControl {
+    return this.form.get('username') as FormControl;
+   }
+
+   get passwordControl(): FormControl {
+    return this.form.get('password') as FormControl;  
+   }
+
+
+
+
+
+
   /* ------------------------------------FIN DE LAS VALIDACIONES -------------------------------- */
-
-
-  // Instanciamos el objeto que le pediremos a la api
-  user: Login = {
-    username: '',
-    password: ''
-  }
 
   // Inyectamos el servicio 'SingUpService' para acceder a sus metodos
   // Especificamente el metodo loginClient

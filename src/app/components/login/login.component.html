@@ -2,15 +2,33 @@
   <form [formGroup]="form" (ngSubmit)="saveForm($event)" class="login">
     <h1>Iniciar sesion</h1>
     <!-- mat-form se usa para envolver los formularios y darles estilo desde material -->
-    <mat-form-field appearance="fill"> 
+    <mat-form-field appearance="fill">
       <!-- label es el texto que aparecerá sobre el input -->
       <mat-label>Ingrese su correo</mat-label>
       <input matInput formControlName="username">
     </mat-form-field>
+    <!--------------------------------------- ERRORES ---------------------------------------------->
+    <div class="errors-form" *ngIf="usernameControl.invalid && (usernameControl.touched || usernameControl.dirty)">
+      <p class="error-msg" *ngIf="usernameControl.hasError('required')">El campo es obligatorio</p>
+      <p class="error-msg" *ngIf="usernameControl.hasError('maxlength')">El campo no debe tener mas de 32 caracteres
+      </p>
+      <p class="error-msg" *ngIf="usernameControl.hasError('minlength')">El campo debe tener minimo 4 caracteres</p>
+      <p class="error-msg" *ngIf="usernameControl.hasError('pattern')">No puede usar caracteres extraños</p>
+    </div>
+    <!---------------------------------- FIN DE LOS ERRORES ---------------------------------------->
     <mat-form-field appearance="fill">
       <mat-label>Ingrese su contraseña</mat-label>
       <input matInput formControlName="password">
     </mat-form-field>
+    <!--------------------------------------- ERRORES ---------------------------------------------->
+    <div class="errors-form" *ngIf="passwordControl.invalid && (passwordControl.touched || passwordControl.dirty)">
+      <p class="error-msg" *ngIf="passwordControl.hasError('required')">El campo es obligatorio</p>
+      <p class="error-msg" *ngIf="passwordControl.hasError('maxlength')">El campo no debe tener mas de 255 caracteres
+      </p>
+      <p class="error-msg" *ngIf="passwordControl.hasError('minlength')">El campo debe tener minimo 4 caracteres</p>
+      <p class="error-msg" *ngIf="passwordControl.hasError('pattern')">No puede usar caracteres extraños</p>
+    </div>
+    <!---------------------------------- FIN DE LOS ERRORES ---------------------------------------->
     <!-- Boton para enviar llamar el evento de mandarle el formulario a la api -->
     <button type="submit" mat-flat-button color="primary" [disabled]="form.invalid">Enviar</button>
     <a href="#">¿Olvidaste tu contraseña?</a>

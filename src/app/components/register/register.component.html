@@ -2,7 +2,7 @@
 <!-- Agregar la verificación, ayuda en: https://material.angular.io/components/form-field/overview -->
 
 <div class="container">
-  <div class="login">
+  <form [formGroup]="form" (ngSubmit)="saveForm($event)" class="register">
     <h1>Registrarse</h1>
     <div class="form">
       <mat-form-field appearance="fill">
@@ -30,7 +30,7 @@
         <input matInput [(ngModel)]='user.password'>
       </mat-form-field>
     </div>
-    <button mat-flat-button color="primary" (click)="saveForm()" >Enviar</button>
+    <button type="submit" mat-flat-button color="primary" >Enviar</button>
     <a href="/login">¿Tienes cuenta? <br> Inicia sesión aquí</a>
-  </div>
+  </form>
 </div>
