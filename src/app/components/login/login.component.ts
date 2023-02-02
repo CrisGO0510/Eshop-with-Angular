@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { debounceTime } from 'rxjs';
 import { SingUpService } from 'src/app/services/sing-up.service';
+import { Login } from 'src/app/modules/Form';
 
 @Component({
   selector: 'app-login',
@@ -26,40 +26,27 @@ export class LoginComponent implements OnInit {
     })
 
     // Este observable me imprimirá en la consola los cambios hechos por el usuario
-    this.form.valueChanges
-    // El debouceTime añade un delay de 0.5s para que solo se manden las peticiones luego de ese tiempo de inactividad,
-    // En este caso cuando deje de escribir
-    .pipe (
-      debounceTime(500)
-    )
-    // Nos suscribimos para analizar los cambios del formulario y los imprimimos en pantalla
-    .subscribe(value => {
-      console.log(value);
-    });
-   }
+    /*this.form.valueChanges
+      // El debouceTime añade un delay de 0.5s para que solo se manden las peticiones luego de ese tiempo de inactividad,
+      // En este caso cuando deje de escribir
+      .pipe(
+        debounceTime(500)
+      )
+      // Nos suscribimos para analizar los cambios del formulario y los imprimimos en pantalla
+      .subscribe(value => {
+        console.log(value);
+      });*/
+  }
 
-   // Función para evitar la recarga automatica y enviar los datos a la consola
-   saveForm(event:Event){
-    event.preventDefault();
-    const value = this.form.value;
-    console.log(value);
-   }
+  // Metodos get para retornar el dato en forma de FormControl para validarlor arriba
 
-
-
-
-   get usernameControl(): FormControl {
+  get usernameControl(): FormControl {
     return this.form.get('username') as FormControl;
-   }
+  }
 
-   get passwordControl(): FormControl {
-    return this.form.get('password') as FormControl;  
-   }
-
-
-
-
-
+  get passwordControl(): FormControl {
+    return this.form.get('password') as FormControl;
+  }
 
   /* ------------------------------------FIN DE LAS VALIDACIONES -------------------------------- */
 
@@ -70,19 +57,23 @@ export class LoginComponent implements OnInit {
     private singUpService: SingUpService,
     // Inyectamos 
     private formBuilder: FormBuilder
-  ) {
+  ) { }
+
+  ngOnInit(): void {
     // Iniciamos la función de las validaciones
     this.buildForm()
   }
-  
-  ngOnInit(): void {
 
+  // Declaramos el objeto user con la interfaz login
+
+  user: Login = {
+    username: '',
+    password: ''
   }
 
   // Creamos una función que será llamada por el boton enviar y lo que hace es enviar
   // la información del formulario al backend
 
-/*
   saveForm() {
     this.singUpService.loginClient(this.user).subscribe({
       next: (v) => console.log(v),
@@ -90,7 +81,6 @@ export class LoginComponent implements OnInit {
       complete: () => console.log('complete')
     })
 
-  }*/
-
+  }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { debounceTime } from 'rxjs';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Register } from 'src/app/modules/Form';
 // Servicio para realizar los metodos http
 import { SingUpService } from '../../services/sing-up.service';
 
@@ -9,19 +9,8 @@ import { SingUpService } from '../../services/sing-up.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
 
-
-  // Instanciamos el objeto que le mandaremos a la api
-  user = {
-    username: '',
-    password: '',
-    phone: '',
-    email: '',
-    root: false,
-    address: '',
-}
-  
   // Inyectamos el servicio 'SingUpService' para acceder a sus metodos
   // Especificamente el metodo registerClient
 
@@ -30,54 +19,71 @@ export class RegisterComponent implements OnInit{
     private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    
+    // Iniciamos la función de las validaciones
+    this.buildForm()
   }
 
   /* ---------------------------------------------- VALIDACIONES ---------------------------------------------- */
 
-    // Definimos de que tipo y que contendrá la variable form
+  // Definimos de que tipo y que contendrá la variable form
   // y esta contendrá todos los datos y validaciones del formulario
 
   form: FormGroup = new FormGroup({})
 
-  // Definimos el contenido del formulario y sus validators
+  // Definimos el contenido del formulario y sus validators 
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.maxLength(255), Validators.minLength(4)]],
-      password: ['', [Validators.required, Validators.maxLength(255), Validators.minLength(4)]]
+      username: ['', [Validators.required, Validators.maxLength(32), Validators.minLength(4), Validators.pattern(/^[a-zA-Z0-9 ]+$/)]],
+      password: ['', [Validators.required, Validators.maxLength(32), Validators.minLength(4), Validators.pattern(/^[a-zA-Z0-9 ]+$/)]],
+      phone: ['', [Validators.required, Validators.maxLength(15), Validators.minLength(7), Validators.pattern(/^[0-9+]+$/)]],
+      email: ['', [Validators.required, Validators.maxLength(32), Validators.minLength(4), Validators.email, Validators.pattern(/^[a-zA-Z0-9-_@. ]+$/)]],
+      address: ['', [Validators.required, Validators.maxLength(32), Validators.minLength(4), Validators.pattern(/^[a-zA-Z0-9- ]+$/)]],
     })
+  }
 
-    // Este observable me imprimirá en la consola los cambios hechos por el usuario
-    this.form.valueChanges
-    // El debouceTime añade un delay de 0.5s para que solo se manden las peticiones luego de ese tiempo de inactividad,
-    // En este caso cuando deje de escribir
-    .pipe (
-      debounceTime(500)
-    )
-    // Nos suscribimos para analizar los cambios del formulario y los imprimimos en pantalla
-    .subscribe(value => {
-      console.log(value);
-    });
-   }
+  get usernameControl(): FormControl {
+    return this.form.get('username') as FormControl;
+  }
 
-   // Función para evitar la recarga automatica y enviar los datos a la consola
-   saveForm(event:Event){
-    event.preventDefault();
-    const value = this.form.value;
-    console.log(value);
-   }
+  get passwordControl(): FormControl {
+    return this.form.get('password') as FormControl;
+  }
   
+  get phoneControl(): FormControl {
+    return this.form.get('phone') as FormControl;
+  }
+
+  get emailControl(): FormControl {
+    return this.form.get('email') as FormControl;
+  }
+
+  get addressControl(): FormControl {
+    return this.form.get('address') as FormControl;
+  }
+
   /* ----------------------------------------- FIN DE LAS VALIDACIONES ---------------------------------------- */
+
+  // Instanciamos el objeto que le mandaremos a la api
+  user: Register = {
+    username: '',
+    password: '',
+    phone: '',
+    email: '',
+    root: false,
+    address: '',
+  }
+
+
   // Creamos una función que será llamada por el boton enviar y lo que hace es enviar
   // la información del formulario al backend
 
-  // saveForm(){
-  //   this.singUpService.registerClient(this.user).subscribe({
-  //     next: (v) => console.log(v),
-  //     error: (e) => console.log(e),
-  //     complete: () => console.log('complete')
-  //   })
+  saveForm() {
+    this.singUpService.registerClient(this.user).subscribe({
+      next: (v) => console.log(v),
+      error: (e) => console.log(e),
+      complete: () => console.log('complete')
+    })
 
-  // }
+  }
 }
