@@ -2,7 +2,7 @@
 <!-- Agregar la verificación, ayuda en: https://material.angular.io/components/form-field/overview -->
 
 <div class="container">
-  <form [formGroup]="form" (Submit)="saveForm()" class="register">
+  <form [formGroup]="form" (submit)="saveForm()" class="register">
     <h1>Registrarse</h1>
     <div class="form">
       <mat-form-field appearance="fill">
@@ -49,12 +49,12 @@
         <input matInput [(ngModel)]='user.email' formControlName="email">
       </mat-form-field>
       <!--------------------------------------- ERRORES ---------------------------------------------->
-      <div class="errors-form" *ngIf="phoneControl.invalid && (phoneControl.touched || phoneControl.dirty)">
-        <p class="error-msg" *ngIf="phoneControl.hasError('required')">El campo es obligatorio</p>
-        <p class="error-msg" *ngIf="phoneControl.hasError('email')">No es un correo valido</p>
-        <p class="error-msg" *ngIf="phoneControl.hasError('maxlength')">El campo no debe tener mas de 15 caracteres</p>
-        <p class="error-msg" *ngIf="phoneControl.hasError('minlength')">El campo debe tener minimo 7 caracteres</p>
-        <p class="error-msg" *ngIf="phoneControl.hasError('pattern')">No puede usar caracteres extraños</p>
+      <div class="errors-form" *ngIf="emailControl.invalid && (emailControl.touched || emailControl.dirty)">
+        <p class="error-msg" *ngIf="emailControl.hasError('required')">El campo es obligatorio</p>
+        <p class="error-msg" *ngIf="emailControl.hasError('email')">No es un correo valido</p>
+        <p class="error-msg" *ngIf="emailControl.hasError('maxlength')">El campo no debe tener mas de 15 caracteres</p>
+        <p class="error-msg" *ngIf="emailControl.hasError('minlength')">El campo debe tener minimo 7 caracteres</p>
+        <p class="error-msg" *ngIf="emailControl.hasError('pattern')">No puede usar caracteres extraños</p>
       </div>
       <!---------------------------------- FIN DE LOS ERRORES ---------------------------------------->
       <mat-form-field appearance="fill">

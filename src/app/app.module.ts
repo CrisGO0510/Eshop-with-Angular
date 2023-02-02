@@ -21,6 +21,10 @@ import { MaterialModule } from './material.module';
 
 // Modulo que inyecta las peticiones a la api
 import { SingUpService } from './services/sing-up.service';
+// Modulo que se usará para proteger las rutas del user (en caso de que no se haya iniciado sesion)
+import { UserGuard } from './guards/user.guard';
+// Modulo que se usará para proteger las rutas del admin (en caso de que no se haya iniciado sesion)
+import { AdminGuard } from './guards/admin.guard';
 // ---------------------------- Componentes ---------------------------------------------
 
 import { AppComponent } from './app.component';
@@ -56,7 +60,9 @@ import { RegisterComponent } from './components/register/register.component';
   ],
   // Sección para importar los servicios
   providers: [
-    SingUpService
+    SingUpService,
+    UserGuard,
+    AdminGuard
   ],
   // Sección para hacia la cual se exportaran todos los archivos anteriores
   bootstrap: [AppComponent]

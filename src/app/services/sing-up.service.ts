@@ -23,14 +23,14 @@ export class SingUpService {
   // El parametro person contiene un objeto de tipo"Form", (Ver en modules)
 
   registerClient(person: Register){
-    return this.http.post(this.API_URI, person);
+    return this.http.post<any>(this.API_URI, person);
   }
 
 
   // Metodo para enviar al servidor un objeto con la informacion que el cliente/admin ingrese en el login
 
   loginClient(person: Login){
-    return this.http.post(this.API_URI, person);
+    return this.http.post<any>(this.API_URI, person);
   }
 
   // Metodo para que el admin pueda cambiar los datos de infomación de su cuenta (password, direccion correo, telefono, email)
@@ -39,6 +39,19 @@ export class SingUpService {
   updateAdmin(id: string, admin: Register){
     return this.http.put(`${this.API_URI}/rutanodeterminada/${id}`, admin);
   }
+
+  // Funcion para determinar si el usuario ha iniciado sesión
+
+  loggedInUser(): Boolean{
+    return !!localStorage.getItem('token')
+  }
+
+  // Funcion para determinar si el usuario ha iniciado sesión
+
+  loggedInAdmin(): Boolean{
+    return !!localStorage.getItem('token')
+  }
+
   
   // ------------------------------FIN DE REGISTRO E INCIO DE SESIÓN------------------------------
 

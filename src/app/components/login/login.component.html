@@ -5,7 +5,7 @@
     <mat-form-field appearance="fill">
       <!-- label es el texto que aparecerá sobre el input -->
       <mat-label>Ingrese su correo</mat-label>
-      <input matInput [ngModel]="user.username" formControlName="username">
+      <input matInput [(ngModel)]='user.username' formControlName="username">
     </mat-form-field>
     <!--------------------------------------- ERRORES ---------------------------------------------->
     <div class="errors-form" *ngIf="usernameControl.invalid && (usernameControl.touched || usernameControl.dirty)">
@@ -18,7 +18,7 @@
     <!---------------------------------- FIN DE LOS ERRORES ---------------------------------------->
     <mat-form-field appearance="fill">
       <mat-label>Ingrese su contraseña</mat-label>
-      <input matInput type="password" [ngModel]="user.password" formControlName="password">
+      <input matInput type="password" [(ngModel)]="user.password" name="password" formControlName="password">
     </mat-form-field>
     <!--------------------------------------- ERRORES ---------------------------------------------->
     <div class="errors-form" *ngIf="passwordControl.invalid && (passwordControl.touched || passwordControl.dirty)">

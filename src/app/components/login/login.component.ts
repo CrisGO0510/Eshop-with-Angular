@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { SingUpService } from 'src/app/services/sing-up.service';
 import { Login } from 'src/app/modules/Form';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -56,7 +57,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private singUpService: SingUpService,
     // Inyectamos 
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    // Iniciamos el router para poder redirigir al user luego del login
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -76,7 +79,20 @@ export class LoginComponent implements OnInit {
 
   saveForm() {
     this.singUpService.loginClient(this.user).subscribe({
-      next: (v) => console.log(v),
+      next: (v) => {
+        console.log(v)
+        console.log(v.root);
+        if (v.root === true) {
+          console.log('admin');
+          localStorage.setItem('token', v.root);
+          this.router.navigate(['/editproducts']);
+        } else if (v.root === false){
+          console.log('no admin');
+          localStorage.setItem('token', v.root);
+          this.router.navigate(['/shoppingcart']);
+        }
+        
+      },
       error: (e) => console.log(e),
       complete: () => console.log('complete')
     })
