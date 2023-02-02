@@ -85,10 +85,12 @@ export class LoginComponent implements OnInit {
         if (v.root === true) {
           console.log('admin');
           localStorage.setItem('token', v.root);
+          location.reload();
           this.router.navigate(['/editproducts']);
         } else if (v.root === false){
           console.log('no admin');
           localStorage.setItem('token', v.root);
+          location.reload();
           this.router.navigate(['/shoppingcart']);
         }
         

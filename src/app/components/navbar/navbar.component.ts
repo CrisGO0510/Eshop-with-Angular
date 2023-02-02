@@ -13,6 +13,7 @@ export class NavbarComponent {
 
   logOut() {
     localStorage.removeItem('token');
+    location.reload();
   }
 
   

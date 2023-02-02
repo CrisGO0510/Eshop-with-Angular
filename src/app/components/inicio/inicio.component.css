@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    margin: 10%;
+    flex-direction: column;
+}
+
+img {
+    height: 15vh;
+}
+
+h1 {
+    margin-bottom: 10%;
+    align-self: center;
+}
