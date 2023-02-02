@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  // Función para saber si existe el item token en el local storage
+
+  userValidator:boolean = !!localStorage.getItem('token');
+
+  logOut() {
+    localStorage.removeItem('token');
+  }
+
+  
+  constructor(){
+    console.log(this.logOut);
+  }
+
 }
