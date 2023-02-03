@@ -23,10 +23,10 @@ export class NavbarComponent {
   }
 
  move() {
-  if (localStorage.getItem('token')) {
-    console.log('VERDADERO');
+  if (localStorage.getItem('token') == 'true') {
+    return true
   } else {
-    console.log('FALSO');
+    return false
   }
  }
 

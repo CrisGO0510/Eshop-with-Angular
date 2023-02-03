@@ -36,7 +36,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { StockComponent } from './components/stock/stock.component';
 import { OneProductComponent } from './components/one-product/one-product.component';
-import { EditProductsComponent } from './components/edit-products/edit-products.component';
+import { EditAdminComponent } from './components/edit-admin/edit-admin.component';
 
 
 // @NgModule es un modulo que define que componentes, servicios, etc. quiere exportar
@@ -52,7 +52,7 @@ import { EditProductsComponent } from './components/edit-products/edit-products.
     RegisterComponent,
     StockComponent,
     OneProductComponent,
-    EditProductsComponent
+    EditAdminComponent
   ],
   // Sección para importar los modulos
   imports: [

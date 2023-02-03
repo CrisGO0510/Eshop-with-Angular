@@ -12,7 +12,7 @@ import { InicioComponent } from './components/inicio/inicio.component'
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { OneProductComponent } from './components/one-product/one-product.component';
-import { EditProductsComponent } from './components/edit-products/edit-products.component';
+import { EditAdminComponent } from './components/edit-admin/edit-admin.component';
 // ------------------------------------- FIN COMPONENTS ------------------------------------
 
 const routes: Routes = [
@@ -39,8 +39,8 @@ const routes: Routes = [
     canActivate: [UserGuard]
   },
   {
-    path: 'editproducts',
-    component: EditProductsComponent,
+    path: 'editAdmin',
+    component: EditAdminComponent,
     canActivate: [AdminGuard]
   },
   {
