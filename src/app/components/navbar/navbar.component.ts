@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SingUpService } from 'src/app/services/sing-up.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,16 +10,24 @@ export class NavbarComponent {
 
   // Función para saber si existe el item token en el local storage
 
-  userValidator:boolean = !!localStorage.getItem('token');
+  userValidator: boolean = !!localStorage.getItem('token');
 
   logOut() {
     localStorage.removeItem('token');
     location.reload();
   }
 
-  
-  constructor(){
-    console.log(this.logOut);
+  nav : string = ''
+
+  constructor() {
   }
+
+ move() {
+  if (localStorage.getItem('token')) {
+    console.log('VERDADERO');
+  } else {
+    console.log('FALSO');
+  }
+ }
 
 }

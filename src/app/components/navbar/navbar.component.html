@@ -18,7 +18,11 @@
             <button mat-menu-item (click)="logOut()">Cerrar sesión</button>
         </mat-menu>
 
-        <a routerLink="/shoppingcart" mat-mini-fab class="example-icon">
+        <a *ngIf="move()" routerLink="/editproducts" mat-mini-fab class="example-icon">
+            <mat-icon>car</mat-icon>
+        </a>
+
+        <a *ngIf="move()" routerLink="/editproducts" mat-mini-fab class="example-icon">
             <mat-icon>shopping_cart</mat-icon>
         </a>
     </mat-toolbar>
