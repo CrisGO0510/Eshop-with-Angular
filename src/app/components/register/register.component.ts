@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Register } from 'src/app/modules/Form';
 // Servicio para realizar los metodos http
 import { SingUpService } from '../../services/sing-up.service';
@@ -12,11 +13,15 @@ import { SingUpService } from '../../services/sing-up.service';
 export class RegisterComponent implements OnInit {
 
   // Inyectamos el servicio 'SingUpService' para acceder a sus metodos
-  // Especificamente el metodo registerClient
+  // Especificamente el metodo loginClient
 
   constructor(
     private singUpService: SingUpService,
-    private formBuilder: FormBuilder) { }
+    // Inyectamos 
+    private formBuilder: FormBuilder,
+    // Iniciamos el router para poder redirigir al user luego del login
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     // Iniciamos la función de las validaciones
@@ -70,7 +75,7 @@ export class RegisterComponent implements OnInit {
     password: '',
     phone: '',
     email: '',
-    root: false,
+    // root: false,
     address: '',
   }
 
@@ -79,8 +84,18 @@ export class RegisterComponent implements OnInit {
   // la información del formulario al backend
 
   saveForm() {
-    this.singUpService.registerClient(this.user).subscribe({
-      next: (v) => console.log(v),
+    this.singUpService.loginClient(this.user).subscribe({
+      next: (v) => {
+        console.log(v)
+        console.log(v.root);
+        if (v.root === false){
+          console.log('no admin');
+          localStorage.setItem('token', v.root);
+          location.reload();
+          this.router.navigate(['/shoppingcart']);
+        }
+        
+      },
       error: (e) => console.log(e),
       complete: () => console.log('complete')
     })

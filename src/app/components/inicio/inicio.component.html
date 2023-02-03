@@ -1,9 +1,4 @@
 <div class="container">
-    <h1> NOMBRE DE LA EMPRESA</h1>
-    <div class="imagenes">
-        <img src='https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2021/09/WhatsApp-logo-12.png?fit=1200%2C771&quality=55&strip=all&ssl=1'>
-        <p class="nombre">Hola</p>
-        <p class="precio">A veces</p>
-        <p class="descripcion">S</p>
-    </div>
+    <h1> Tienda de Electronica</h1>
+        <p *ngFor="let product of products; index as i"> {{i + 1}} = <a routerLink="/product/{{i+1}}">{{product.name}}</a> <br/> {{product.id}}</p>
 </div>

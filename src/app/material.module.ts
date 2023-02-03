@@ -17,7 +17,7 @@ import { MatBadgeModule } from '@angular/material/badge';
         MatMenuModule,
         MatFormFieldModule,
         MatInputModule,
-        MatBadgeModule
+        MatBadgeModule,
     ],
     exports: [
         MatToolbarModule,
@@ -26,7 +26,7 @@ import { MatBadgeModule } from '@angular/material/badge';
         MatMenuModule,
         MatFormFieldModule,
         MatInputModule,
-        MatBadgeModule
+        MatBadgeModule,
     ]
 })
 

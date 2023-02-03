@@ -11,3 +11,11 @@ export interface Login {
     username: string;
     password: string;
 }
+
+export interface product {
+    name: string;
+    username: string;
+    email: string;
+    phone: string;
+    website: string;
+  }

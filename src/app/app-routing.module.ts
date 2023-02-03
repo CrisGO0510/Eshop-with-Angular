@@ -11,6 +11,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { InicioComponent } from './components/inicio/inicio.component'
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { OneProductComponent } from './components/one-product/one-product.component';
 // ------------------------------------- FIN COMPONENTS ------------------------------------
 
 const routes: Routes = [
@@ -40,6 +41,10 @@ const routes: Routes = [
     path: 'editproducts',
     component: CarritoComponent,
     canActivate: [AdminGuard]
+  },
+  {
+    path: 'product/:id',
+    component: OneProductComponent
   }
 ];
 

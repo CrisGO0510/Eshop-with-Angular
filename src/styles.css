@@ -10,7 +10,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 main {
     display: grid;
-    background-color: antiquewhite;
+    background-color: white;
     min-height: 100vh;
     min-width: 100vw;
     grid-template-rows: auto 1fr auto;

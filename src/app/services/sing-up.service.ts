@@ -10,7 +10,7 @@ export class SingUpService {
 
   // Variable que contendrá la dirección de la api
 
-  API_URI = "https://jsonplaceholder.typicode.com/posts"
+  API_URI = "https://jsonplaceholder.typicode.com/users?_limit=5"
 
   // Generamos una variable llamada 'http' con el clase de 'httpClient' para poder usar sus metodos
   constructor(private http: HttpClient) { }
@@ -66,7 +66,7 @@ export class SingUpService {
     // Metodo para tener la información de un unico producto y mostrar caracteristicas mas especificas
 
     getOneProduct(id: string){
-      return this.http.get(`${this.API_URI}/rutanodeterminada/${id}`);
+      return this.http.get(`${this.API_URI}&id=${id}`);
     }
 
     // Metodos admin
