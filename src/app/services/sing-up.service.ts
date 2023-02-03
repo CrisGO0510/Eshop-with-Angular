@@ -34,10 +34,10 @@ export class SingUpService {
   }
 
   // Metodo para que el admin pueda cambiar los datos de infomación de su cuenta (password, direccion correo, telefono, email)
-  // TODO: Tenemos que corregir la ruta de la apiuri
+  // TODO: Tenemos que corregir la ruta de la API_URI
 
-  updateAdmin(id: string, admin: Register){
-    return this.http.put(`${this.API_URI}/rutanodeterminada/${id}`, admin);
+  updateAdmin(admin: Register){
+    return this.http.put(`${this.API_URI}/users/admin`, admin);
   }
 
   // Funcion para determinar si el usuario ha iniciado sesión
@@ -76,10 +76,6 @@ export class SingUpService {
     updateProduct(id: string, stock: string){
       return this.http.put(`${this.API_URI}/rutanodeterminada/${id}`, stock);
     }
-  
-
-
-
   // --------------------------------------FIN DE PRODUCTOS--------------------------------------
 
 

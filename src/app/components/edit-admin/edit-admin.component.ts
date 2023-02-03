@@ -84,8 +84,11 @@ export class EditAdminComponent implements OnInit {
   // la información del formulario al backend
 
   saveForm() {
-    this.singUpService.loginClient(this.user).subscribe({
-      next: (v) => console.log(v),
+    this.singUpService.updateAdmin(this.user).subscribe({
+      next: (v) => {
+        console.log(v);
+        this.router.navigate(['/']);
+      },
       error: (e) => console.log(e),
       complete: () => alert('El registro a sido completado')
     })

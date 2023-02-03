@@ -5,8 +5,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* Se agregaron estilos globales */
 
 .container{
-    height: 85%;
-    overflow: hidden;
+    min-height: 85%;
+    overflow: scroll;
 }
 
 main {

@@ -1,4 +1,12 @@
-<div class="container">
-    <h1> Tienda de Electronica</h1>
-        <div class="products" *ngFor="let product of products; index as i"> {{product.id}} <br/> <a routerLink="/product/{{i+1}}">{{product.name}}</a> <br/> {{product.price}} <br/> {{product.stock}} </div>
+<div>
+    <h1>Postres Magdalena</h1>
+    <div class="container">
+        <div class="products" *ngFor="let product of products; index as i">
+            <img src="https://cdn-icons-png.flaticon.com/512/1088/1088537.png">
+            <br />
+            <a routerLink="/product/{{i+1}}">{{product.name}}</a>
+            <br />
+            ${{product.price}} <br /> Stock disponible: {{product.stock}}
+        </div>
+    </div>
 </div>

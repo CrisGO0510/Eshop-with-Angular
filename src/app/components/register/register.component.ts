@@ -75,7 +75,7 @@ export class RegisterComponent implements OnInit {
     password: '',
     phone: '',
     email: '',
-    // root: false,
+    root: false,
     address: '',
   }
 
@@ -84,7 +84,7 @@ export class RegisterComponent implements OnInit {
   // la información del formulario al backend
 
   saveForm() {
-    this.singUpService.loginClient(this.user).subscribe({
+    this.singUpService.registerClient(this.user).subscribe({
       next: (v) => {
         console.log(v)
         console.log(v.root);

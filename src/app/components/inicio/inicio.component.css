@@ -1,14 +1,23 @@
 .container {
     display: flex;
     margin: 10%;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    height: 1%;
 }
 
 .products {
-    margin: 2rem;
+    height: max-content;
+    width: 30%;
+}
+
+img {
+    width: 30%;
 }
 
 h1 {
+    margin: 10rem;
     margin-bottom: 10%;
     align-self: center;
 }
