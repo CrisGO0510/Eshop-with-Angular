@@ -4,8 +4,8 @@
     flex-direction: column;
 }
 
-img {
-    height: 15vh;
+.products {
+    margin: 2rem;
 }
 
 h1 {

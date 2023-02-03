@@ -10,7 +10,7 @@ export class SingUpService {
 
   // Variable que contendrá la dirección de la api
 
-  API_URI = "https://jsonplaceholder.typicode.com/users?_limit=5"
+  API_URI = "http://localhost:3900/api"
 
   // Generamos una variable llamada 'http' con el clase de 'httpClient' para poder usar sus metodos
   constructor(private http: HttpClient) { }
@@ -23,14 +23,14 @@ export class SingUpService {
   // El parametro person contiene un objeto de tipo"Form", (Ver en modules)
 
   registerClient(person: Register){
-    return this.http.post<any>(this.API_URI, person);
+    return this.http.post<any>(`${this.API_URI}/users/signup`, person);
   }
 
 
   // Metodo para enviar al servidor un objeto con la informacion que el cliente/admin ingrese en el login
 
   loginClient(person: Login){
-    return this.http.post<any>(this.API_URI, person);
+    return this.http.post<any>(`${this.API_URI}/users/login`, person);
   }
 
   // Metodo para que el admin pueda cambiar los datos de infomación de su cuenta (password, direccion correo, telefono, email)
@@ -60,13 +60,13 @@ export class SingUpService {
     // Metodo para tener la información de todos los productos (Para renderizarlos en pantalla)
 
     getProducts(){
-      return this.http.get(this.API_URI);
+      return this.http.get(`${this.API_URI}/products`);
     }
 
     // Metodo para tener la información de un unico producto y mostrar caracteristicas mas especificas
 
     getOneProduct(id: string){
-      return this.http.get(`${this.API_URI}&id=${id}`);
+      return this.http.get(`${this.API_URI}/products/${id}`);
     }
 
     // Metodos admin

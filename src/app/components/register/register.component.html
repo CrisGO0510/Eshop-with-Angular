@@ -41,7 +41,7 @@
         <p class="error-msg" *ngIf="phoneControl.hasError('maxlength')">El campo no debe tener mas de 15 caracteres
         </p>
         <p class="error-msg" *ngIf="phoneControl.hasError('minlength')">El campo debe tener minimo 7 caracteres</p>
-        <p class="error-msg" *ngIf="phoneControl.hasError('pattern')">No puede usar caracteres extraños</p>
+        <p class="error-msg" *ngIf="phoneControl.hasError('pattern')">Solo puede ingresar numeros</p>
       </div>
       <!---------------------------------- FIN DE LOS ERRORES ---------------------------------------->
       <mat-form-field appearance="fill">

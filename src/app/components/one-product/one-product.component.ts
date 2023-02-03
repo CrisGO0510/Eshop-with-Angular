@@ -9,28 +9,21 @@ import { SingUpService } from 'src/app/services/sing-up.service';
   templateUrl: './one-product.component.html',
   styleUrls: ['./one-product.component.css']
 })
-export class OneProductComponent implements OnInit{
+export class OneProductComponent implements OnInit {
 
   constructor(
     // Inyectamos ActivatedRoute para poder tomar el parametro de la url y asignarlo a una variable (id)
-    private route : ActivatedRoute,
+    private route: ActivatedRoute,
     // Inyectamos SingUpService para usar los metodos http (getOneProduct) y así traer los datos de
     // los productos desde la base de datos
-    private services : SingUpService
-    ){}
+    private services: SingUpService
+  ) { }
 
-    // Variable que será usada para identificar que producto traer
-    id:any = '';
-    // Variable que alojará toda la información de un producto
-
-    // TODO: Cambiar el modules/Form, y la variable API de services/sing-up 
-    product:product = {
-      name: '',
-      username: '',
-      email: '',
-      phone: '',
-      website: '',
-    }
+  // Variable que será usada para identificar que producto traer
+  id: any = '';
+  // Variable que alojará toda la información de un producto
+  // TODO: Cambiar el modules/Form, y la variable API de services/sing-up 
+  product: any = {}
 
   ngOnInit(): void {
     // Función para que la variable id tenga el parametro de la url
@@ -40,9 +33,9 @@ export class OneProductComponent implements OnInit{
   }
 
   // Funcion par traer el producto con la id y retornarlo en la varible product
-  getOneProduct(gId:string) {
+  getOneProduct(gId: string) {
     this.services.getOneProduct(gId).subscribe({
-      next: (v: any) => this.product = v[0],
+      next: (v: any) => this.product = v,
       error: (e) => console.log(e),
       complete: () => console.log(this.product)
     })

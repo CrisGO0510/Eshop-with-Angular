@@ -1,4 +1,4 @@
 <div class="container">
     <h1> Tienda de Electronica</h1>
-        <p *ngFor="let product of products; index as i"> {{i + 1}} = <a routerLink="/product/{{i+1}}">{{product.name}}</a> <br/> {{product.id}}</p>
+        <div class="products" *ngFor="let product of products; index as i"> {{product.id}} <br/> <a routerLink="/product/{{i+1}}">{{product.name}}</a> <br/> {{product.price}} <br/> {{product.stock}} </div>
 </div>
